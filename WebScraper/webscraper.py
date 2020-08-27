@@ -2,6 +2,7 @@ import os
 import json
 import requests # for GET requests
 from bs4 import BeautifulSoup # to parse HTML
+from datetime import datetime
 
 GOOGLE_IMAGE = \
     'https://www.google.com/search?site=&tbm=isch&source=hp&biw=1873&bih=990&'
@@ -19,13 +20,21 @@ usr_agent = {
     'Connection': 'keep-alive',
 }
 
-SAVE_FOLDER = 'C:/Users/risha/OneDrive/Desktop/images'
+def main():
+# def find_all_images(file_name, dictionary_file_name, save_folder, n_images):
+    foods_list = 'WebScraper/data/foods.txt'
+    dictionary_file = 'WebScraper/data/dictionary.txt'
+    save_folder = 'WebScraper/data/images'
+    n_images = 100
+    find_all_images(foods_list, dictionary_file, save_folder, n_images)
 
 def download_images(save_folder, data, n_images):
+    start_time = datetime.now()
+
     if not os.path.exists(save_folder):
         os.mkdir(save_folder)
 
-    print('Searching...')
+    print(f'Searching for {data}...')
 
     # get url query string
     searchurl = GOOGLE_IMAGE + 'q=' + data
@@ -44,7 +53,7 @@ def download_images(save_folder, data, n_images):
         if len(text.split('https://')) > 1:
             imagelinks.append(text)
 
-    print(f'found {len(imagelinks)} images')
+    print(f'Found {len(imagelinks)} images')
     print('Downloading...')
 
     # download the images
@@ -55,7 +64,10 @@ def download_images(save_folder, data, n_images):
         imagename = save_folder + '/' + data.replace(" ", "_") + str(i+1) + '.jpg'
         with open(imagename, 'wb') as file:
             file.write(response.content)
-    print('Done')
+
+    time = (datetime.now() - start_time)
+    print('Finished in ' + str(time.seconds) + '.' + str(time.microseconds) + ' seconds')
+    print()
 
 
 def find_all_images(file_name, dictionary_file_name, save_folder, n_images):
@@ -75,4 +87,5 @@ def find_all_images(file_name, dictionary_file_name, save_folder, n_images):
 
     dictionary_file.close()
 
-find_all_images('WebScraper/foods.txt', 'WebScraper/dictionary.txt', 'WebScraper/images', 100)
+if __name__ == "__main__":
+    main()
