@@ -23,9 +23,9 @@ usr_agent = {
 def main():
 # def find_all_images(file_name, dictionary_file_name, save_folder, n_images):
     foods_list = 'WebScraper/data/foods.txt'
-    dictionary_file = 'WebScraper/data/dictionary.txt'
-    save_folder = 'WebScraper/data/images'
-    n_images = 100
+    dictionary_file = 'WebScraper/data/2/dictionary.txt'
+    save_folder = 'WebScraper/data/2/images'
+    n_images = 1000
     find_all_images(foods_list, dictionary_file, save_folder, n_images)
 
 def download_images(save_folder, data, n_images):
@@ -74,7 +74,10 @@ def find_all_images(file_name, dictionary_file_name, save_folder, n_images):
     read_file = open(file_name, "r")
     lines = read_file.readlines()
 
-    dictionary_file = open(dictionary_file_name, "w")
+    if not os.path.exists(save_folder + '/../'):
+        os.mkdir(save_folder + '/../')
+
+    dictionary_file = open(dictionary_file_name, "w+")
 
     if not os.path.exists(save_folder):
         os.mkdir(save_folder)
@@ -82,7 +85,10 @@ def find_all_images(file_name, dictionary_file_name, save_folder, n_images):
     i = 0
     for line in lines:
         dictionary_file.write(str(i) + ' ' + line.strip().replace(" ", "_") + '\n')
-        download_images(save_folder + '/' + str(i), line.strip(), n_images)
+        try:
+            download_images(save_folder + '/' + str(i), line.strip(), n_images)
+        except:
+            print('error at: ' + str(i))
         i += 1
 
     dictionary_file.close()

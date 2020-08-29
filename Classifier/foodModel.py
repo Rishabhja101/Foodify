@@ -8,10 +8,10 @@ from PIL import Image
 from sklearn.model_selection import train_test_split
 from tensorflow.python.keras import regularizers
 
-EPOCHS = 10
+EPOCHS = 25
 IMG_WIDTH = 30
 IMG_HEIGHT = 30
-NUM_CATEGORIES = 2
+NUM_CATEGORIES = 105
 TEST_SIZE = 0.3
 
 
@@ -61,13 +61,16 @@ def load_data(data_dir):
     labels = []
 
     for x in range(NUM_CATEGORIES):
-        directory = os.path.join("trainingData", str(x))
+        directory = os.path.join("WebScraper" ,"data", '2',  "images", str(x))
         count = 0
 
         for file in os.listdir(directory):
             im = cv2.imread(os.path.join(directory, file))
             if file[-1] == 'e':
                 continue
+
+            print(str(x) + ' ' + file)
+
             # im = np.array(Image.open(os.path.join(directory, file)))
             resized_image = cv2.resize(im, (IMG_HEIGHT, IMG_WIDTH))
 
@@ -90,7 +93,7 @@ def get_model():
         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
         tf.keras.layers.BatchNormalization(axis=2),
 
-        tf.keras.layers.Conv2D(80, (3, 3), activation="relu", input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)),
+        tf.keras.layers.Conv2D(60, (3, 3), activation="relu", input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)),
         tf.keras.layers.MaxPooling2D(pool_size=(3, 3)),
         tf.keras.layers.BatchNormalization(axis=2),
 
@@ -102,7 +105,7 @@ def get_model():
         tf.keras.layers.Flatten(),
         tf.keras.layers.Dense(50, activation="relu"),
         tf.keras.layers.Dense(120, activation="relu"),
-        tf.keras.layers.Dropout(0.5),
+        tf.keras.layers.Dropout(0.4),
         # output layer
         tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax")
     ])

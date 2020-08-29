@@ -12,13 +12,15 @@ st.set_option('deprecation.showfileUploaderEncoding', False)
 
 
 def classifier():
-    with open('filename') as f:
+    with open('WebScraper/data/0/dictionary.txt') as f:
         lines = f.readlines()
     foodDict = {}
-    for line in lines:
+    for i in range(9):
+        # line in lines:
+        line = lines[i]
         temp = line.split()
         foodDict[temp[0]] = temp[1]
-    new_model = tf.keras.models.load_model('modelLoadWITHTRASH.h5')
+    new_model = tf.keras.models.load_model('modelLoadCategorical.h5')
     img = cv2.imread("temp.jpg")
     resized_image = cv2.resize(img, (30, 30))
     img = np.reshape(resized_image, (1, 30, 30, 3))
@@ -36,22 +38,17 @@ def classifier():
     for x in range(len(foodDict)):
         dictValues[x] = temp2[x]
     sorted_d = sorted(dictValues.items(), key=operator.itemgetter(1), reverse=True)
-    print(sorted_d)
     classification = sorted_d[0][0]
-    st.write(foodDict.get(classification))
-
+    st.write(foodDict[str(classification)])
 
 st.title('Foodify')
 st.header('Classify your food with us today!')
 st.subheader('Foodify uses neural networks to figure out what food you are looking at!')
 st.write("")
 
-components.html(
-    """<img class="recycle-img" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="recycle-img" 
-    styles="height:250px; width:250px; padding:2rem;"> 
-    """,
-    height=250, width=500
-)
+image = Image.open('FrontEnd/logo.png')
+st.image(image, use_column_width=True)
+
 st.header('Please upload an image file')
 file = st.file_uploader("", type=["jpg", "png", 'jpeg'])
 
