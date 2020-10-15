@@ -22,10 +22,10 @@ usr_agent = {
 
 def main():
 # def find_all_images(file_name, dictionary_file_name, save_folder, n_images):
-    foods_list = 'WebScraper/data/foods.txt'
-    dictionary_file = 'WebScraper/data/2/dictionary.txt'
-    save_folder = 'WebScraper/data/2/images'
-    n_images = 1000
+    foods_list = '/Users/rishabhja/Documents/GitHub/Foodify/WebScraper/data/foods.txt'
+    dictionary_file = '/Users/rishabhja/Documents/GitHub/Foodify/WebScraper/data/0/dictionary.txt'
+    save_folder = '/Users/rishabhja/Documents/GitHub/Foodify/WebScraper/data/0/images'
+    n_images = 1000000
     find_all_images(foods_list, dictionary_file, save_folder, n_images)
 
 def download_images(save_folder, data, n_images):
@@ -52,6 +52,9 @@ def download_images(save_folder, data, n_images):
         text = str(r).split('src')[1].split('\"')[1]
         if len(text.split('https://')) > 1:
             imagelinks.append(text)
+        # else:
+            # print(text)
+
 
     print(f'Found {len(imagelinks)} images')
     print('Downloading...')
@@ -59,7 +62,11 @@ def download_images(save_folder, data, n_images):
     # download the images
     for i, imagelink in enumerate(imagelinks):
         # open image link and save as file
+
+        # print('------1')
+        # print(imagelink)
         response = requests.get(imagelink)
+        # print('------2')
 
         imagename = save_folder + '/' + data.replace(" ", "_") + str(i+1) + '.jpg'
         with open(imagename, 'wb') as file:
@@ -74,8 +81,8 @@ def find_all_images(file_name, dictionary_file_name, save_folder, n_images):
     read_file = open(file_name, "r")
     lines = read_file.readlines()
 
-    if not os.path.exists(save_folder + '/../'):
-        os.mkdir(save_folder + '/../')
+    if not os.path.exists(save_folder + ''):
+        os.mkdir(save_folder + '')
 
     dictionary_file = open(dictionary_file_name, "w+")
 

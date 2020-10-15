@@ -1,105 +1,20 @@
 Tater tots
-Salad
-Jerky
-Chicken Wings
-Chips
 Popcorn
-Waffles
-Sandwich
-Pie
-Cookie
-Steak
-Pork
-Hot Dog
-Burger
-Fries
-Lobster
-Soda
-Cake
-Bagel
-Cereal
+Pizza
 Bread
+Fries
+Cake
 Ice Cream
-Banana
+Bannana
 Apple
+Salsa
+Sandwich
+Waffles
 Grapes
 Pear
+Pasta
 Mango
 Watermelon
-Pizza
-Pasta
-Spaghetti
-Lasagna
-Ravioli
-Risotto
-Cheese
-Biscotti
-Tortellini
-Gnocchi
-Coffee
-Naan
-Dosa
-Biriyani
-Chaat
-Roti
-Saag
-Kabab
-Vada Pav
-Dhokla
-Gobi
-Paneer
-Mango Lassi
-Masala
-Chole
-Dal
-Jalebi
-Kheer
-Khichdi
-Kofta
-Pani Puri
-Papad
-Rajma
-Samosa
-Idli
-Sambar
-Uttapam
-Vada
-Chevdo
-Dabeli
-Dhokla
-Gulab Jamun
-Laddu
-Puri
-Bhaji
-Chutney
-Roll
-Rice
-Pot Sticker
-Dumpling
-Noodles
-Kimchi
-Soup
-Dim Sum
-Sushi
-Curry
-Tarts
-Crepes
-Pho
-Duck
-Crab
+Hot Dog
 Burrito
-Taco
-Chalupa
-Churro
-Guacamole
-Enchilada
-Fajita
-Gordita
-Crunchwrap
-Salsa
-Tamales
-Tortilla
-Pico de Gallo
-Flan
-Horchata
-Quesadillas
+Rice

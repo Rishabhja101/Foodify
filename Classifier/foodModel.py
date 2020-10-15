@@ -4,14 +4,15 @@ import os
 import sys
 import tensorflow as tf
 from PIL import Image
+import os.path as path
 
 from sklearn.model_selection import train_test_split
 from tensorflow.python.keras import regularizers
 
-EPOCHS = 25
-IMG_WIDTH = 30
-IMG_HEIGHT = 30
-NUM_CATEGORIES = 105
+EPOCHS = 35
+IMG_WIDTH = 40
+IMG_HEIGHT = 40
+NUM_CATEGORIES = 20
 TEST_SIZE = 0.3
 
 
@@ -61,22 +62,27 @@ def load_data(data_dir):
     labels = []
 
     for x in range(NUM_CATEGORIES):
-        directory = os.path.join("WebScraper" ,"data", '2',  "images", str(x))
+        directory = os.path.join("WebScraper" ,"data", "0","images", str(x))
         count = 0
 
-        for file in os.listdir(directory):
-            im = cv2.imread(os.path.join(directory, file))
-            if file[-1] == 'e':
-                continue
+        #print(str(x) + ' ' + directory + ' ' + str(path.exists('/Users/rishabhja/Documents/GitHub/Foodify/' + directory)) + ' ' + str(path.exists('/Users/rishabhja/Documents/GitHub/Foodify/WebScraper/data/images/0')))
+    
 
-            print(str(x) + ' ' + file)
+        if (path.exists('/Users/rishabhja/Documents/GitHub/Foodify/' + directory)):
+            
+            for file in os.listdir('/Users/rishabhja/Documents/GitHub/Foodify/' + directory):
+                im = cv2.imread(os.path.join('/Users/rishabhja/Documents/GitHub/Foodify/', directory, file))
+                if file[-1] == 'e':
+                    continue
 
-            # im = np.array(Image.open(os.path.join(directory, file)))
-            resized_image = cv2.resize(im, (IMG_HEIGHT, IMG_WIDTH))
+                # print(str(x) + ' ' + file)
 
-            count += 1
-            images.append(resized_image)
-            labels.append(str(x))
+                # im = np.array(Image.open(os.path.join(directory, file)))
+                resized_image = cv2.resize(im, (IMG_HEIGHT, IMG_WIDTH))
+
+                count += 1
+                images.append(resized_image)
+                labels.append(str(x))
 
     return images, labels
 
@@ -108,6 +114,19 @@ def get_model():
         tf.keras.layers.Dropout(0.4),
         # output layer
         tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax")
+
+
+#         tf.keras.layers.Conv2D(40, (5, 5), activation="relu", input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)),
+#         tf.keras.layers.Dropout(0.1),
+#         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+#         tf.keras.layers.Dropout(0.1),
+#         tf.keras.layers.Conv2D(35, (3, 3), activation="relu", input_shape=(IMG_WIDTH, IMG_HEIGHT, 3)),
+#         tf.keras.layers.Dropout(0.1),
+#         tf.keras.layers.MaxPooling2D(pool_size=(2, 2)),
+#         tf.keras.layers.Dropout(0.1),
+#         tf.keras.layers.Flatten(),
+#         # output layer
+#         tf.keras.layers.Dense(NUM_CATEGORIES, activation="softmax")
     ])
 
     model.compile(
