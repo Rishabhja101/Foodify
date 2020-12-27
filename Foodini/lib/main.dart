@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'Screens/mainPage.dart';
+import 'Screens/test.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +24,9 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      // home: MainPage(),
+        home: TestApp(),
+      // home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -56,6 +60,8 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+      // MaterialPageRoute(builder: (context) => MainPage());
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) => MainPage()));
     });
   }
 
