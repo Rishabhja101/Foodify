@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVKit
 
 
 class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
@@ -16,7 +17,10 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         // Do any additional setup after loading the view.
+        
+        // Some cosmetic adjustments to the UI to make the textfield look pretty
         textField.layer.borderWidth = 1.5
         textField.layer.borderColor = #colorLiteral(red: 1, green: 0.3580502272, blue: 0, alpha: 1)
         textField.layer.cornerRadius = 8.0;

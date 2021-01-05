@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -38,11 +39,6 @@
                                     <action selector="takePhoto:" destination="BYZ-38-t0r" eventType="touchDown" id="pWw-Xh-8NA"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="mPk-Je-MAK">
-                                <rect key="frame" x="0.0" y="174" width="414" height="97"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqv-mz-lYb">
                                 <rect key="frame" x="251" y="437" width="100" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -52,6 +48,19 @@
                                 </state>
                                 <connections>
                                     <action selector="selectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pt3-tD-Wso"/>
+                                </connections>
+                            </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="mPk-Je-MAK">
+                                <rect key="frame" x="0.0" y="174" width="414" height="97"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2w-Ks-Sc0">
+                                <rect key="frame" x="169" y="566" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Live Camer"/>
+                                <connections>
+                                    <segue destination="tHw-N3-d0z" kind="show" id="Yib-0i-SaO"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -67,10 +76,29 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="73.660714285714278"/>
         </scene>
+        <!--Live Camera View Controller-->
+        <scene sceneID="rgk-7H-L90">
+            <objects>
+                <viewController id="tHw-N3-d0z" customClass="LiveCameraViewController" customModule="Foodify" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="MIe-4B-LfT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="btb-ez-RzI"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Dxz-CV-NIG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ajV-I0-gRf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="999" y="74"/>
+        </scene>
     </scenes>
     <resources>
         <image name="camera.circle" catalog="system" width="128" height="121"/>
         <image name="logo.png" width="139" height="31.920000076293945"/>
         <image name="photo.on.rectangle.angled" catalog="system" width="128" height="101"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

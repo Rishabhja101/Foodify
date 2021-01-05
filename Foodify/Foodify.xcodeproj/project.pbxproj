@@ -18,6 +18,9 @@
 		5089ED7E25987E3900463A97 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 5089ED7D25987E3900463A97 /* logo.png */; };
 		5089ED8325988D0000463A97 /* button 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 5089ED8225988D0000463A97 /* button 1.png */; };
 		5089ED9E2598A33900463A97 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = 5089ED9D2598A33900463A97 /* Icons */; };
+		5089EDAB25A40B3D00463A97 /* LiveCameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5089EDAA25A40B3C00463A97 /* LiveCameraViewController.swift */; };
+		5089EDB025A417D400463A97 /* SqueezeNet.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5089EDAF25A417D400463A97 /* SqueezeNet.mlmodel */; };
+		5089EDB525A41EAE00463A97 /* MobileNetV2.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 5089EDB425A41EAE00463A97 /* MobileNetV2.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +58,9 @@
 		5089ED7D25987E3900463A97 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
 		5089ED8225988D0000463A97 /* button 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button 1.png"; sourceTree = "<group>"; };
 		5089ED9D2598A33900463A97 /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = "<group>"; };
+		5089EDAA25A40B3C00463A97 /* LiveCameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveCameraViewController.swift; sourceTree = "<group>"; };
+		5089EDAF25A417D400463A97 /* SqueezeNet.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SqueezeNet.mlmodel; sourceTree = "<group>"; };
+		5089EDB425A41EAE00463A97 /* MobileNetV2.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = MobileNetV2.mlmodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,11 +111,14 @@
 		503AC3162593E1D2000CFB38 /* Foodify */ = {
 			isa = PBXGroup;
 			children = (
+				5089EDB425A41EAE00463A97 /* MobileNetV2.mlmodel */,
+				5089EDAF25A417D400463A97 /* SqueezeNet.mlmodel */,
 				5089ED7925987E0C00463A97 /* Assets */,
 				503AC3172593E1D2000CFB38 /* AppDelegate.swift */,
 				503AC3192593E1D2000CFB38 /* SceneDelegate.swift */,
 				503AC31B2593E1D2000CFB38 /* ViewController.swift */,
 				503AC31D2593E1D2000CFB38 /* Main.storyboard */,
+				5089EDAA25A40B3C00463A97 /* LiveCameraViewController.swift */,
 				503AC3202593E1D5000CFB38 /* Assets.xcassets */,
 				503AC3222593E1D5000CFB38 /* LaunchScreen.storyboard */,
 				503AC3252593E1D5000CFB38 /* Info.plist */,
@@ -278,7 +287,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5089EDB525A41EAE00463A97 /* MobileNetV2.mlmodel in Sources */,
 				503AC31C2593E1D2000CFB38 /* ViewController.swift in Sources */,
+				5089EDAB25A40B3D00463A97 /* LiveCameraViewController.swift in Sources */,
+				5089EDB025A417D400463A97 /* SqueezeNet.mlmodel in Sources */,
 				503AC3182593E1D2000CFB38 /* AppDelegate.swift in Sources */,
 				503AC31A2593E1D2000CFB38 /* SceneDelegate.swift in Sources */,
 			);
