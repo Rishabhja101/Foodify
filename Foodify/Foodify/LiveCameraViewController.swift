@@ -11,6 +11,8 @@ import Vision
 
 class LiveCameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
 
+    @IBOutlet weak var classificationLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -44,11 +46,22 @@ class LiveCameraViewController: UIViewController, AVCaptureVideoDataOutputSample
         guard let model = try? VNCoreMLModel(for: MobileNetV2().model) else {return}
         
         let request = VNCoreMLRequest(model: model) { (VNRequest, err) in
-//            print(VNRequest.results)
-            
             guard let results = VNRequest.results as? [VNClassificationObservation] else {return}
             guard let firstObservation = results.first else {return}
-            print(firstObservation.identifier, firstObservation.confidence)
+//            print(firstObservation.identifier, firstObservation.confidence)
+            
+            let topClassifications = results.prefix(3)
+            let descriptions = topClassifications.map { classification in
+                // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
+               return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
+            }
+            self.classificationLabel.numberOfLines = 4
+            self.classificationLabel.text = "Classification:\n" + descriptions.joined(separator: "\n")
+            
+            self.classificationLabel.setNeedsDisplay()
+
+            print( self.classificationLabel.text)
+            
         }
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }

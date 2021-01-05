@@ -26,7 +26,7 @@
                             </textField>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y0Y-7I-oYn">
                                 <rect key="frame" x="20" y="604" width="374" height="258"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XxT-Fp-LPF">
                                 <rect key="frame" x="64" y="439" width="100" height="100"/>
@@ -57,17 +57,26 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y2w-Ks-Sc0">
                                 <rect key="frame" x="169" y="566" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <state key="normal" title="Live Camer"/>
                                 <connections>
                                     <segue destination="tHw-N3-d0z" kind="show" id="Yib-0i-SaO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbZ-UK-cka">
+                                <rect key="frame" x="32" y="781" width="176" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
                     <connections>
+                        <outlet property="classificationLabel" destination="wbZ-UK-cka" id="XUw-Yx-br0"/>
                         <outlet property="imageView" destination="y0Y-7I-oYn" id="l1h-3e-meI"/>
                         <outlet property="textField" destination="EKM-zk-65P" id="rMd-ko-Y1z"/>
                     </connections>
@@ -83,14 +92,27 @@
                     <view key="view" contentMode="scaleToFill" id="MIe-4B-LfT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MyD-gV-UeC">
+                                <rect key="frame" x="29" y="749" width="291" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="btb-ez-RzI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Dxz-CV-NIG"/>
+                    <connections>
+                        <outlet property="classificationLabel" destination="MyD-gV-UeC" id="njN-rO-COM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ajV-I0-gRf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="999" y="74"/>
+            <point key="canvasLocation" x="998.55072463768124" y="73.660714285714278"/>
         </scene>
     </scenes>
     <resources>
